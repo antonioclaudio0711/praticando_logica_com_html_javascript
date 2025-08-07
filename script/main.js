@@ -1,57 +1,41 @@
-// document.writeln("18" + 20); // 1820
+// Desenho da bandeira do Brasil
+// var tela = document.querySelector("canvas");
+// var pincel = tela.getContext("2d");
 
-// var media = (39 + 20 + 41) / 3;
-// document.writeln(`A média das idades é ${Math.round(media)}`);
+// criarRetangulo("green", 0, 0, 600, 400);
 
-// imc = peso / altura * altura;
-// var nomeUsuario = validador(nomeUsuario, "Informe o seu nome:");
-// var pesoUsuario = parseFloat(validador(pesoUsuario, "Informe o seu peso:"));
-// var alturaUsuario = parseFloat(validador(alturaUsuario, "Informe a sua altura:"));
+// pincel.fillStyle = "yellow";
+// pincel.beginPath();
+// pincel.moveTo(300, 50);
+// pincel.lineTo(50, 200);
+// pincel.lineTo(550, 200);
+// pincel.fill();
 
-// if (isNaN(pesoUsuario) || isNaN(alturaUsuario)) {
-//     document.writeln("Valores inválidos inseridos!")
-// } else {
-//     var imcUsuario = calcularIMC(pesoUsuario, alturaUsuario);
-//     document.writeln(`IMC ${nomeUsuario} = ${imcUsuario}<br>`);
+// pincel.beginPath();
+// pincel.moveTo(300, 350);
+// pincel.lineTo(50, 200);
+// pincel.lineTo(550, 200);
+// pincel.fill();
 
-//     if (imcUsuario < 18.5) {
-//         document.writeln("IMC abaixo do recomendado!");
-//     } else if (imcUsuario >= 18.5 && imcUsuario <= 35) {
-//         document.writeln("IMC normal!");
-//     } else {
-//         document.writeln("IMC acima do recomendado!");
-//     }
-// }
+// pincel.fillStyle = "darkblue";
+// pincel.beginPath();
+// pincel.arc(300, 200, 100, 0, 2 * 3.14);
+// pincel.fill();
 
-// function calcularIMC(peso, altura) {
-//     let imc = peso / (altura * altura);
-//     return imc;
-// }
+function desenhaQuadrado(corQuadrado, coordenadaInicialX, coordenadaInicialY) {
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
 
-// function validador(variavel, mensagemPrompt) {
-//     while (variavel == "" || variavel == null) {
-//         variavel = prompt(mensagemPrompt);
-//     }
-
-//     return variavel;
-// }
-
-var anosBrasilCampeao = [1958, 1962, 1970, 1994, 2002];
-var anoCorrente = new Date().getFullYear();
-var anoInicioCopas = 1930;
-// while (anoInicioCopas <= anoCorrente) {
-//     document.writeln(`<br>Tivemos Copa do Mundo no ano de ${anoInicioCopas}<br>`);
-
-//     if (anosBrasilCampeao.includes(anoInicioCopas)) {
-//         document.writeln("Brasil campeão!!<br>");
-//     }
-//     anoInicioCopas += 4;
-// }
-
-for (let index = anoInicioCopas; index <= anoCorrente; index += 4) {
-    document.writeln(`<br>Tivemos Copa do Mundo no ano de ${index}<br>`);
-
-    if (anosBrasilCampeao.includes(index)) {
-        document.writeln("Brasil campeão!!<br>");
-    }
+    pincel.fillStyle = corQuadrado;
+    pincel.fillRect(coordenadaInicialX, coordenadaInicialY, 50, 50);
+    pincel.fillStroke = "red";
+    pincel.strokeStyle = "black";
+    pincel.strokeRect(coordenadaInicialX, coordenadaInicialY, 50, 50);
 }
+
+var maxWidth = 0;
+while (maxWidth <= 600) {
+    desenhaQuadrado("blue", maxWidth, 0);
+    maxWidth += 50;
+}
+
